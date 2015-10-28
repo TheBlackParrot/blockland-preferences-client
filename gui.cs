@@ -11,7 +11,7 @@ function clientCmdAddPref(%category, %title, %type, %variable, %value, %params, 
 	if($BLPrefs::Client::Exists[%category]) {
 		return;
 	}
-	
+
 	$BLPrefs::Client::Exists[%category] = true;
 	%row = new GuiSwatchCtrl(BLPrefCategoryRow) {
 		profile = "GuiDefaultProfile";
@@ -23,7 +23,7 @@ function clientCmdAddPref(%category, %title, %type, %variable, %value, %params, 
 		enabled = "1";
 		visible = "1";
 		clipToParent = "1";
-		color = "220 235 255 255";
+		color = (($BLPrefs::CategoryRows % 2) ? "220 235 255" : "230 245 255") SPC "255";
 
 		new GuiBitmapCtrl() {
 			profile = "GuiDefaultProfile";
@@ -35,7 +35,7 @@ function clientCmdAddPref(%category, %title, %type, %variable, %value, %params, 
 			enabled = "1";
 			visible = "1";
 			clipToParent = "1";
-			bitmap = "Add-Ons/Client_BlocklandPreferences/icons/" @ %icon @ ".png";
+			bitmap = "Add-Ons/Client_BlocklandPreferences/icons/" @ getIconOverride(%category, %icon) @ ".png";
 			wrap = "0";
 			lockAspectRatio = "1";
 			alignLeft = "0";
