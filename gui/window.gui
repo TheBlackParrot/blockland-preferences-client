@@ -67,6 +67,33 @@ new GuiControl(BLPrefGui) {
 			childMargin = "0 0";
 			rowHeight = "40";
 			columnWidth = "30";
+
+			new GuiSwatchCtrl() {
+				profile = "GuiDefaultProfile";
+				horizSizing = "right";
+				vertSizing = "bottom";
+				position = "0 0";
+				extent = "348 20";
+				minExtent = "8 2";
+				enabled = "1";
+				visible = "1";
+				clipToParent = "1";
+				color = "0 0 0 255";
+
+				new GuiTextCtrl(BLPrefTitle) {
+					profile = "OptionsMenuTextProfile";
+					horizSizing = "right";
+					vertSizing = "bottom";
+					position = "4 2";
+					extent = "340 16";
+					minExtent = "8 2";
+					enabled = "1";
+					visible = "1";
+					clipToParent = "1";
+					text = "";
+					maxLength = "255";
+				};
+			};
 		};
 	};
 };
