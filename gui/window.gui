@@ -1,0 +1,72 @@
+new GuiControl(BLPrefGui) {
+	profile = "GuiDefaultProfile";
+	horizSizing = "right";
+	vertSizing = "bottom";
+	position = "0 0";
+	extent = "640 480";
+	minExtent = "8 2";
+	enabled = "1";
+	visible = "1";
+	clipToParent = "1";
+
+	new GuiWindowCtrl(BLPrefWindow) {
+		profile = "GuiWindowProfile";
+		horizSizing = "right";
+		vertSizing = "bottom";
+		position = "0 0";
+		extent = "512 384";
+		minExtent = "8 2";
+		enabled = "1";
+		visible = "1";
+		clipToParent = "1";
+		text = "Blockland Preferences Manager";
+		maxLength = "255";
+		resizeWidth = "1";
+		resizeHeight = "1";
+		canMove = "1";
+		canClose = "1";
+		canMinimize = "1";
+		canMaximize = "1";
+		minSize = "50 50";
+		command = "canvas.popDialog(BLPrefWindow);";
+		closeCommand = "canvas.popDialog(BLPrefWindow);";
+		accelerator = "ESC";
+
+		new GuiScrollCtrl(BLPrefCategoryList) {
+			profile = "GuiScrollProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "8 32";
+			extent = "142 344";
+			minExtent = "8 2";
+			enabled = "1";
+			visible = "1";
+			clipToParent = "1";
+			willFirstRespond = "0";
+			hScrollBar = "alwaysOff";
+			vScrollBar = "dynamic";
+			constantThumbHeight = "0";
+			childMargin = "0 0";
+			rowHeight = "40";
+			columnWidth = "30";
+		};
+		new GuiScrollCtrl(BLPrefPrefList) {
+			profile = "GuiScrollProfile";
+			horizSizing = "right";
+			vertSizing = "bottom";
+			position = "156 32";
+			extent = "348 344";
+			minExtent = "8 2";
+			enabled = "1";
+			visible = "1";
+			clipToParent = "1";
+			willFirstRespond = "0";
+			hScrollBar = "dynamic";
+			vScrollBar = "dynamic";
+			constantThumbHeight = "0";
+			childMargin = "0 0";
+			rowHeight = "40";
+			columnWidth = "30";
+		};
+	};
+};
