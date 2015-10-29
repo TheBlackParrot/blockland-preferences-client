@@ -35,7 +35,7 @@ function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params)
 	%extent = getWord(%label.extent, 0);
 
 	%input = new GuiTextEditCtrl(BLPrefTextInput) {
-		profile = "GuiTextEditProfile";
+		profile = "BLPrefTextEditProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";
 		position = (%extent+32) SPC "10";

@@ -1,6 +1,7 @@
 if(!isObject(BLPrefWindow)) {
 	exec("./gui/window.gui");
 	exec("./gui/textProfile.gui");
+	exec("./gui/textEdit.gui");
 }
 
 function openBLPrefWindow() {
