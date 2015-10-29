@@ -2,6 +2,7 @@ if(!isObject(BLPrefWindow)) {
 	exec("./gui/window.gui");
 	exec("./gui/textProfile.gui");
 	exec("./gui/textEdit.gui");
+	exec("./gui/checkboxProfile.gui");
 }
 
 function openBLPrefWindow() {
@@ -115,8 +116,11 @@ function clientCmdReceivePref(%title, %type, %variable, %value, %params, %legacy
 	}
 
 	switch$(%type) {
-		case "number":
+		case "number" or "string":
 			BLPrefPrefList.addTextInput(%title, %variable, %value, %params);
+
+		case "boolean":
+			BLPrefPrefList.addCheckboxInput(%title, %variable, %value);
 	}
 }
 

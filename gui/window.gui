@@ -14,7 +14,7 @@ new GuiControl(BLPrefGui) {
 		horizSizing = "right";
 		vertSizing = "bottom";
 		position = "0 0";
-		extent = "512 384";
+		extent = "612 384";
 		minExtent = "8 2";
 		enabled = "1";
 		visible = "1";
@@ -55,7 +55,7 @@ new GuiControl(BLPrefGui) {
 			horizSizing = "right";
 			vertSizing = "bottom";
 			position = "156 32";
-			extent = "348 344";
+			extent = "448 344";
 			minExtent = "8 2";
 			enabled = "1";
 			visible = "1";
@@ -73,7 +73,7 @@ new GuiControl(BLPrefGui) {
 				horizSizing = "right";
 				vertSizing = "bottom";
 				position = "0 0";
-				extent = "331 344";
+				extent = "431 344";
 				minExtent = "8 2";
 				enabled = "1";
 				visible = "1";
@@ -85,7 +85,7 @@ new GuiControl(BLPrefGui) {
 					horizSizing = "right";
 					vertSizing = "bottom";
 					position = "0 0";
-					extent = "348 20";
+					extent = "448 20";
 					minExtent = "8 2";
 					enabled = "1";
 					visible = "1";
@@ -97,7 +97,7 @@ new GuiControl(BLPrefGui) {
 						horizSizing = "right";
 						vertSizing = "bottom";
 						position = "4 2";
-						extent = "340 16";
+						extent = "440 16";
 						minExtent = "8 2";
 						enabled = "1";
 						visible = "1";

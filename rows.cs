@@ -1,7 +1,7 @@
 // in case anyone else ever runs into the issue of scrollCtrl's not scrolling, here you go:
 // http://forum.blockland.us/index.php?topic=234496.0
 
-$BLPrefs::BaseRowWidth = 332;
+$BLPrefs::BaseRowWidth = 432;
 
 function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params) {
 	%row = new GuiSwatchCtrl(BLPrefTextRow) {
@@ -53,6 +53,48 @@ function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params)
 	};
 	%input.setValue(%value);
 	%input.schedule(0, fixPosExt, %label);
+
+	%row.add(%input);
+
+	%this.add(%row);
+
+	$BLPrefs::LastRowPos += 40;
+	$BLPrefs::PrefRows++;
+}
+
+function BLPrefPrefList::addCheckboxInput(%this, %title, %variable, %value) {
+	// merge commands soon
+
+	%row = new GuiSwatchCtrl(BLPrefTextRow) {
+		profile = "GuiDefaultProfile";
+		horizSizing = "right";
+		vertSizing = "bottom";
+		position = "0" SPC $BLPrefs::LastRowPos;
+		extent = $BLPrefs::BaseRowWidth SPC 40;
+		minExtent = "8 2";
+		enabled = "1";
+		visible = "1";
+		clipToParent = "1";
+		color = (($BLPrefs::PrefRows % 2) ? "225 225 225" : "240 240 240") SPC "255";
+		isRow = 1;
+	};
+
+	%input = new GuiCheckBoxCtrl(BLPrefCheckboxInput) {
+		profile = "BLPrefCheckBoxProfile";
+		horizSizing = "right";
+		vertSizing = "bottom";
+		position = "16 10";
+		extent = "140 17";
+		minExtent = "8 2";
+		enabled = "1";
+		visible = "1";
+		clipToParent = "1";
+		text = %title;
+		groupNum = "-1";
+		buttonType = "ToggleButton";
+	};
+
+	%input.setValue(%value);
 
 	%row.add(%input);
 
