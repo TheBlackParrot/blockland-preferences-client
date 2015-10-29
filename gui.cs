@@ -1,5 +1,6 @@
 if(!isObject(BLPrefWindow)) {
 	exec("./gui/window.gui");
+	exec("./gui/textProfile.gui");
 }
 
 function openBLPrefWindow() {
@@ -53,7 +54,7 @@ function clientCmdAddCategory(%category, %icon) {
 	};
 
 	%text = new GuiTextCtrl() {
-		profile = "GuiTextProfile";
+		profile = "BLPrefTextProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";
 		position = "24 1";
@@ -120,7 +121,7 @@ function clientCmdReceivePref(%title, %type, %variable, %value, %params, %legacy
 
 function BLPrefPrefList::clearPrefRows(%this) {
 	// we have to go in reverse D:
-	for(%i=%this.getCount();%i>=0;%i--) {
+	for(%i=%this.getCount()-1;%i>=0;%i--) {
 		%row = %this.getObject(%i);
 		if(%row.isRow) {
 			%row.delete();
@@ -134,10 +135,10 @@ function BLPrefCategoryList::setRowActive(%this, %category) {
 
 		if(%row.category $= %category) {
 			%row.color = "143 161 179 255";
-			%row.textObj.setProfile("OptionsMenuTextProfile");
+			%row.textObj.setProfile(BLPrefTextSelectedProfile);
 		} else {
 			%row.color = %row.originalColor;
-			%row.textObj.setProfile("GuiTextProfile");
+			%row.textObj.setProfile(BLPrefTextProfile);
 		}
 	}
 }

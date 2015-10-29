@@ -50,7 +50,7 @@ new GuiControl(BLPrefGui) {
 			rowHeight = "40";
 			columnWidth = "30";
 		};
-		new GuiScrollCtrl(BLPrefPrefList) {
+		new GuiScrollCtrl(BLPrefPrefListScroll) {
 			profile = "GuiScrollProfile";
 			horizSizing = "right";
 			vertSizing = "bottom";
@@ -61,37 +61,50 @@ new GuiControl(BLPrefGui) {
 			visible = "1";
 			clipToParent = "1";
 			willFirstRespond = "0";
-			hScrollBar = "dynamic";
-			vScrollBar = "dynamic";
+			hScrollBar = "alwaysOff";
+			vScrollBar = "alwaysOn";
 			constantThumbHeight = "0";
 			childMargin = "0 0";
 			rowHeight = "40";
 			columnWidth = "30";
 
-			new GuiSwatchCtrl() {
+			new GuiSwatchCtrl(BLPrefPrefList) {
 				profile = "GuiDefaultProfile";
 				horizSizing = "right";
 				vertSizing = "bottom";
 				position = "0 0";
-				extent = "348 20";
+				extent = "331 344";
 				minExtent = "8 2";
 				enabled = "1";
 				visible = "1";
 				clipToParent = "1";
-				color = "0 0 0 255";
+				color = "255 255 255 255";
 
-				new GuiTextCtrl(BLPrefTitle) {
-					profile = "OptionsMenuTextProfile";
+				new GuiSwatchCtrl() {
+					profile = "GuiDefaultProfile";
 					horizSizing = "right";
 					vertSizing = "bottom";
-					position = "4 2";
-					extent = "340 16";
+					position = "0 0";
+					extent = "348 20";
 					minExtent = "8 2";
 					enabled = "1";
 					visible = "1";
 					clipToParent = "1";
-					text = "";
-					maxLength = "255";
+					color = "0 0 0 255";
+
+					new GuiTextCtrl(BLPrefTitle) {
+						profile = "OptionsMenuTextProfile";
+						horizSizing = "right";
+						vertSizing = "bottom";
+						position = "4 2";
+						extent = "340 16";
+						minExtent = "8 2";
+						enabled = "1";
+						visible = "1";
+						clipToParent = "1";
+						text = "";
+						maxLength = "255";
+					};
 				};
 			};
 		};

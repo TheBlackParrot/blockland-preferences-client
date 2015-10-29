@@ -1,10 +1,15 @@
+// in case anyone else ever runs into the issue of scrollCtrl's not scrolling, here you go:
+// http://forum.blockland.us/index.php?topic=234496.0
+
+$BLPrefs::BaseRowWidth = 332;
+
 function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params) {
 	%row = new GuiSwatchCtrl(BLPrefTextRow) {
 		profile = "GuiDefaultProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";
-		position = "1" SPC $BLPrefs::LastRowPos;
-		extent = "348 40";
+		position = "0" SPC $BLPrefs::LastRowPos;
+		extent = $BLPrefs::BaseRowWidth SPC 40;
 		minExtent = "8 2";
 		enabled = "1";
 		visible = "1";
@@ -14,7 +19,7 @@ function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params)
 	};
 
 	%label = new GuiTextCtrl(BLPrefRowLabel) {
-		profile = "GuiTextProfile";
+		profile = "BLPrefTextProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";
 		position = "16 10";
@@ -28,14 +33,13 @@ function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params)
 	%row.add(%label);
 
 	%extent = getWord(%label.extent, 0);
-	echo(%extent);
 
 	%input = new GuiTextEditCtrl(BLPrefTextInput) {
 		profile = "GuiTextEditProfile";
 		horizSizing = "right";
 		vertSizing = "bottom";
 		position = (%extent+32) SPC "10";
-		extent = (348-%extent-32) SPC "18";
+		extent = ($BLPrefs::BaseRowWidth-%extent-32) SPC "18";
 		minExtent = "8 2";
 		enabled = "1";
 		visible = "1";
@@ -60,5 +64,11 @@ function BLPrefPrefList::addTextInput(%this, %title, %variable, %value, %params)
 
 function BLPrefTextInput::fixPosExt(%this, %label) {
 	%extent = getWord(%label.extent, 0);
-	%this.resize(%extent + 32, 10, 348 - %extent - 48, 18);
+	%this.resize(%extent + 32, 10, $BLPrefs::BaseRowWidth - %extent - 48, 18);
+}
+
+function clientCmdFinishReceivePref() {
+	BLPrefPrefList.extent = getWord(BLPrefPrefList.extent, 0) SPC $BLPrefs::LastRowPos;
+	%params = BLPrefPrefListScroll.position SPC BLPrefPrefListScroll.extent;
+	BLPrefPrefListScroll.resize(getWord(%params, 0), getWord(%params, 1), getWord(%params, 2), getWord(%params, 3));
 }
