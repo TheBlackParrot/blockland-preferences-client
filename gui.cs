@@ -114,7 +114,7 @@ function clientCmdReceivePref(%title, %type, %variable, %value, %params, %legacy
 	}
 
 	switch$(%type) {
-		case "integer":
+		case "number":
 			BLPrefPrefList.addTextInput(%title, %variable, %value, %params);
 	}
 }
